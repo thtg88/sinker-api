@@ -233,9 +233,9 @@ return [
     'event_types' => ['CREATE', 'REMOVE', 'WRITE'],
 
     'auth_headers' => [
-        'api_key' => 'x-sinker-api-key',
-        'device_id' => 'x-sinker-device-id',
-        'user_id' => 'x-sinker-user-id',
+        'api_key' => 'X-Sinker-Api-Key',
+        'device_id' => 'X-Sinker-Device-Id',
+        'user_id' => 'X-Sinker-User-Id',
     ],
 
 ];
