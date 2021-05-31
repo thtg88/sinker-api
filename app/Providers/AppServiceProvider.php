@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
                 return null;
             }
 
-            if (!$this->deviceId() || !Uuid::isValid()) {
+            if (!$this->deviceId() || !Uuid::isValid($this->deviceId())) {
                 return null;
             }
 
