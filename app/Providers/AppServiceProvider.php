@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
+use Ramsey\Uuid\Uuid;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
         Request::macro('device', function () {
             /** @var \Illuminate\Http\Request $this */
             if (!$this->user()) {
+                return null;
+            }
+
+            if (!$this->deviceId() || !Uuid::isValid()) {
                 return null;
             }
 
