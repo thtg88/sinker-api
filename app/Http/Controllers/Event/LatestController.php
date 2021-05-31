@@ -28,7 +28,8 @@ final class LatestController extends Controller
                 $query->where(
                     'created_at',
                     '>=',
-                    Carbon::parse($request->t)->toDateTimeString()
+                    Carbon::createFromFormat('U', $request->t)
+                        ->toDateTimeString()
                 );
             })
             ->whereDoesntHave('device_events', static function ($query) use ($request) {
