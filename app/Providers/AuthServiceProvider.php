@@ -31,7 +31,6 @@ class AuthServiceProvider extends ServiceProvider
                 $app['request'],
                 config('app.auth_headers.api_key'),
                 config('app.auth_headers.user_id'),
-                config('app.auth_headers.device_id'),
             );
         });
     }
