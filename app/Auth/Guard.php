@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Guard as GuardContract;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class Guard implements GuardContract
 {
@@ -45,6 +46,9 @@ class Guard implements GuardContract
         if (empty($api_key) || empty($user_id)) {
             return $this->user = $user;
         }
+        if (!Uuid::isValid($user_id)) {
+            return $this->user = $user;
+        }
 
         $user = $this->provider->retrieveByCredentials([
             $this->storage_key => $this->hash ? hash('sha256', $api_key) : $api_key,
@@ -76,6 +80,9 @@ class Guard implements GuardContract
             empty($credentials[$this->input_key]) ||
             empty($credentials[$this->input_user_id])
         ) {
+            return false;
+        }
+        if (!Uuid::isValid($credentials[$this->input_user_id])) {
             return false;
         }
 
