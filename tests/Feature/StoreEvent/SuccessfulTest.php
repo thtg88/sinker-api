@@ -29,6 +29,7 @@ class SuccessfulTest extends TestCase
             ->json('post', $this->route(), $data);
 
         $response->assertStatus(Response::HTTP_CREATED)
+            ->assertJsonStructure(['data' => ['id']])
             ->assertJson([
                 'data' => [
                     'path' => $data['path'],
