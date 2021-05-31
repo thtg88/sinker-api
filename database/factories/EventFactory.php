@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
@@ -26,5 +27,10 @@ class EventFactory extends Factory
             'path' => 'path/to/file',
             'type' => Arr::random(config('app.event_types')),
         ];
+    }
+
+    public function forUser(User $user): self
+    {
+        return $this->state(['user_id' => $user->id]);
     }
 }
