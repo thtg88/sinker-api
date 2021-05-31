@@ -23,6 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'api_key' => Str::random(64),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
