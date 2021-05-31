@@ -9,12 +9,4 @@ use Illuminate\Http\Response;
 
 abstract class Controller
 {
-    protected function deviceOrFail(Request $request): Device
-    {
-        $device = $request->device();
-
-        abort_unless($device, Response::HTTP_NOT_FOUND);
-
-        return $device;
-    }
 }
