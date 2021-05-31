@@ -17,10 +17,8 @@ class Guard implements GuardContract
         protected Request $request,
         protected string $input_key,
         protected string $input_user_id,
-        protected string $input_device_id,
         protected string $storage_key = 'api_key',
         protected string $storage_user_id = 'uuid',
-        protected string $storage_device_id = 'uuid',
         protected bool $hash = false,
     ) {
         $this->provider = $provider;
@@ -47,8 +45,7 @@ class Guard implements GuardContract
 
         $api_key = $this->getKeyForRequest();
         $user_id = $this->getUserIdForRequest();
-        $device_id = $this->getDeviceIdForRequest();
-        if (empty($api_key) || empty($user_id) || empty($device_id)) {
+        if (empty($api_key) || empty($user_id)) {
             return $this->user = $user;
         }
 
@@ -56,21 +53,6 @@ class Guard implements GuardContract
             $this->storage_key => $this->hash ? hash('sha256', $api_key) : $api_key,
             $this->storage_user_id => $this->hash ? hash('sha256', $user_id) : $user_id,
         ]);
-        if (!$user) {
-            return $this->user = $user;
-        }
-
-        $user = $user->loadCount([
-            'devices' => function ($query) use ($device_id) {
-                $query->where(
-                    $this->storage_device_id,
-                    $this->hash ? hash('sha256', $device_id) : $device_id
-                );
-            },
-        ]);
-        if ($user->devices_count === 0) {
-            $user = null;
-        }
 
         return $this->user = $user;
     }
@@ -85,11 +67,6 @@ class Guard implements GuardContract
         return $this->request->header($this->input_user_id);
     }
 
-    public function getDeviceIdForRequest(): string|array|null
-    {
-        return $this->request->header($this->input_device_id);
-    }
-
     /**
      * Validate a user's credentials.
      *
@@ -101,8 +78,7 @@ class Guard implements GuardContract
     {
         if (
             empty($credentials[$this->input_key]) ||
-            empty($credentials[$this->input_user_id]) ||
-            empty($credentials[$this->input_device_id])
+            empty($credentials[$this->input_user_id])
         ) {
             return false;
         }
@@ -111,19 +87,7 @@ class Guard implements GuardContract
             $this->storage_key => $credentials[$this->input_key],
             $this->storage_user_id => $credentials[$this->input_user_id],
         ]);
-        if (!$user) {
-            return false;
-        }
-
-        $user = $user->loadCount([
-            'devices' => function ($query) use ($device_id) {
-                $query->where(
-                    $this->storage_device_id,
-                    $this->hash ? hash('sha256', $device_id) : $device_id
-                );
-            },
-        ]);
-        if ($user->devices_count > 0) {
+        if ($user) {
             return true;
         }
 
