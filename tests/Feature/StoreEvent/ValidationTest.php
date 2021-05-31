@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\StoreEvent;
 
+use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Tests\Feature\TestCase;
@@ -9,6 +10,15 @@ use Tests\Feature\TestCase;
 class ValidationTest extends TestCase
 {
     use WithRoute;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->user = User::factory()->create();
+
+        $this->user->devices()->create();
+    }
 
     /** @test */
     public function path_required_validation_errors(): void

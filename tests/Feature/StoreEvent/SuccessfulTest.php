@@ -3,12 +3,22 @@
 namespace Tests\Feature\StoreEvent;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Response;
 use Tests\Feature\TestCase;
 
 class SuccessfulTest extends TestCase
 {
     use WithRoute;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->user = User::factory()->create();
+
+        $this->user->devices()->create();
+    }
 
     /** @test */
     public function successful_store_response(): void
