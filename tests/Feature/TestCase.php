@@ -14,10 +14,14 @@ abstract class TestCase extends BaseTestCase
 
     public function loginAs(User $user): self
     {
-        return $this->withHeaders([
+        $headers = [
             config('app.auth_headers.api_key') => $user->api_key,
-            config('app.auth_headers.device_id') => $user->devices->first()->uuid,
             config('app.auth_headers.user_id') => $user->uuid,
-        ]);
+        ];
+        if (!$user->devices->isEmpty()) {
+            $headers[config('app.auth_headers.device_id')] = $user->devices->first()->uuid;
+        }
+
+        return $this->withHeaders($headers);
     }
 }
