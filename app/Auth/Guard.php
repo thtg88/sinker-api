@@ -28,9 +28,6 @@ class Guard implements GuardContract
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
-     * @psalm-suppress UndefinedInterfaceMethod
-     * @psalm-suppress InvalidReturnType
-     * @psalm-suppress InvalidReturnStatement
      */
     public function user(): ?Authenticatable
     {
@@ -72,7 +69,6 @@ class Guard implements GuardContract
      *
      * @param array $credentials
      * @return bool
-     * @psalm-suppress UndefinedInterfaceMethod
      */
     public function validate(array $credentials = []): bool
     {
