@@ -6,6 +6,6 @@ trait WithRoute
 {
     private function route(): string
     {
-        return route('events.store');
+        return route('api.v1.events.store');
     }
 }
