@@ -1,0 +1,34 @@
+name: Sinker API CI
+
+on:
+  push:
+
+jobs:
+  setup_lint_stan_and_tests:
+    runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+
+      - uses: "ramsey/composer-install@v1"
+
+      - name: Copy .env.example file to .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Generate encryption key
+        run: php artisan key:generate
+
+      - name: Run linting
+        run: composer run-script check-style
+
+      - name: Run static analysis
+        run: composer run-script stan
+
+      - name: Run test suite
+        run: composer run-script test -- --stop-on-failure
