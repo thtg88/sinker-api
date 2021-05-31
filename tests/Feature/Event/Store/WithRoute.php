@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\StoreEvent;
+namespace Tests\Feature\Event\Store;
 
 trait WithRoute
 {

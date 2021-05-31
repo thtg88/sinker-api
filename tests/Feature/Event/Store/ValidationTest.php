@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\StoreEvent;
+namespace Tests\Feature\Event\Store;
 
 use App\Models\User;
 use Illuminate\Http\Response;
