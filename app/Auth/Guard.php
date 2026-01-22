@@ -30,6 +30,7 @@ class Guard implements GuardContract
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
+    #[\Override]
     public function user(): ?Authenticatable
     {
         // If we've already retrieved the user for the current request we can just
@@ -74,6 +75,7 @@ class Guard implements GuardContract
      * @param array $credentials
      * @return bool
      */
+    #[\Override]
     public function validate(array $credentials = []): bool
     {
         if (
@@ -97,6 +99,9 @@ class Guard implements GuardContract
         return false;
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function setRequest(Request $request)
     {
         $this->request = $request;

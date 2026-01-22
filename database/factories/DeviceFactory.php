@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @psalm-suppress MissingTemplateParam
+ * @psalm-suppress UnusedClass
  */
 class DeviceFactory extends Factory
 {
@@ -17,6 +18,7 @@ class DeviceFactory extends Factory
      */
     protected $model = Device::class;
 
+    #[\Override]
     public function definition()
     {
         return [

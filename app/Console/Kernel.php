@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
      * @param \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
+    #[\Override]
     protected function schedule(Schedule $schedule)
     {
     }
@@ -29,6 +30,7 @@ class Kernel extends ConsoleKernel
      *
      * @return void
      */
+    #[\Override]
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');

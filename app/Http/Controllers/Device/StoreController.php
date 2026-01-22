@@ -9,7 +9,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class StoreController extends Controller
+/**
+ * @psalm-suppress UnusedClass
+ */
+final class StoreController extends Controller
 {
     /**
      * Handle the incoming request.

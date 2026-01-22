@@ -41,6 +41,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
+    #[\Override]
     public function render($request, Throwable $e)
     {
         return $this->renderJson($request, $e);
@@ -139,10 +140,8 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
+    #[\Override]
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
     }
 }

@@ -33,6 +33,7 @@ final class Device extends Model
      *
      * @return void
      */
+    #[\Override]
     protected static function booted(): void
     {
         static::creating(function ($model) {
@@ -42,11 +43,17 @@ final class Device extends Model
         });
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function device_events(): HasMany
     {
         return $this->hasMany(DeviceEvent::class);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

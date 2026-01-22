@@ -27,11 +27,17 @@ final class Event extends Model
         'user_id' => 'integer',
     ];
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function device_events(): HasMany
     {
         return $this->hasMany(DeviceEvent::class);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

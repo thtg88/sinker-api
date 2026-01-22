@@ -4,6 +4,11 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @property-read int    $id
+ * @property-read string $path
+ * @property-read string $type
+ */
 class EventResource extends JsonResource
 {
     /**
@@ -12,6 +17,7 @@ class EventResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    #[\Override]
     public function toArray($request)
     {
         return [

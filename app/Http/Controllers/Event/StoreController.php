@@ -8,9 +8,11 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @psalm-suppress UnusedClass
+ */
 final class StoreController extends Controller
 {
     /**

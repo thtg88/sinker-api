@@ -19,6 +19,7 @@ class EventFactory extends Factory
      */
     protected $model = Event::class;
 
+    #[\Override]
     public function definition()
     {
         return [
@@ -27,6 +28,9 @@ class EventFactory extends Factory
         ];
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function forUser(User $user): self
     {
         return $this->state(['user_id' => $user->id]);

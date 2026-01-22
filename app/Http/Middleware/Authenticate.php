@@ -13,6 +13,7 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return never
      */
+    #[\Override]
     protected function redirectTo($request)
     {
         abort(Response::HTTP_UNAUTHORIZED);

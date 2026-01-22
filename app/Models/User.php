@@ -55,6 +55,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return void
      */
+    #[\Override]
     protected static function booted(): void
     {
         static::creating(function ($model) {
@@ -64,21 +65,33 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function setEmailAttribute($value): void
     {
         $this->attributes['email'] = strtolower($value);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function setPasswordAttribute(string $value): void
     {
         $this->attributes['password'] = Hash::make($value);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function devices(): HasMany
     {
         return $this->hasMany(Device::class);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);

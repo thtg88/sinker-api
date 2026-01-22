@@ -9,6 +9,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
+/**
+ * @psalm-suppress UnusedClass
+ */
 final class LatestController extends Controller
 {
     /**

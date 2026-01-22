@@ -14,6 +14,7 @@ class AuthorizeDevice
      * @param \Illuminate\Http\Request $request
      * @param \Closure $next
      * @return mixed
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function handle(Request $request, Closure $next)
     {

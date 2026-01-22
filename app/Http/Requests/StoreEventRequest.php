@@ -6,11 +6,17 @@ use Illuminate\Foundation\Http\FormRequest;
 
 final class StoreEventRequest extends FormRequest
 {
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function rules(): array
     {
         return [

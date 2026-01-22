@@ -26,11 +26,17 @@ final class DeviceEvent extends Model
         'event_id' => 'integer',
     ];
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function device(): BelongsTo
     {
         return $this->belongsTo(Device::class);
     }
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
