@@ -5,6 +5,9 @@ namespace Database\Factories;
 use App\Models\Device;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @psalm-suppress MissingTemplateParam
+ */
 class DeviceFactory extends Factory
 {
     /**

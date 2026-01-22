@@ -23,8 +23,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
         Auth::extend('api_key', function ($app, $name, array $config) {
             return new Guard(
                 Auth::createUserProvider($config['provider']),
