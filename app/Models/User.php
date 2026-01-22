@@ -10,6 +10,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+/**
+ * @psalm-suppress MissingTemplateParam
+ */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;

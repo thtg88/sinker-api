@@ -7,9 +7,9 @@
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^10.0",
+        "laravel/framework": "^11.0",
         "laravel/tinker": "^2.5",
-        "sentry/sentry-laravel": "^3.0"
+        "sentry/sentry-laravel": "^4.0"
     },
     "require-dev": {
         "brainmaestro/composer-git-hooks": "^3.0",
@@ -17,11 +17,11 @@
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^7.0",
+        "nunomaduro/collision": "^8.1",
         "phpunit/phpunit": "^10.0",
         "psalm/plugin-laravel": "^2.0",
         "spatie/laravel-ignition": "^2.0",
-        "thtg88/laravel-db-scaffold-commands": "^0.4.0",
+        "thtg88/laravel-db-scaffold-commands": "^0.6.0",
         "vimeo/psalm": "^5.0"
     },
     "autoload": {
