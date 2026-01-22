@@ -6,24 +6,23 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.40",
+        "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
         "sentry/sentry-laravel": "^2.6"
     },
     "require-dev": {
-        "brainmaestro/composer-git-hooks": "^2.8",
+        "brainmaestro/composer-git-hooks": "^3.0",
         "brianium/paratest": "^6.3",
-        "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3",
-        "psalm/plugin-laravel": "^1.4",
-        "thtg88/laravel-db-scaffold-commands": "^0.3.0",
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.3",
+        "psalm/plugin-laravel": "^2.0",
+        "spatie/laravel-ignition": "^1.0",
+        "thtg88/laravel-db-scaffold-commands": "^0.4.0",
         "vimeo/psalm": "^4.7"
     },
     "autoload": {
