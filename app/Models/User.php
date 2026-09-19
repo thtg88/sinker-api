@@ -68,7 +68,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @psalm-suppress PossiblyUnusedMethod
      */
-    public function setEmailAttribute($value): void
+    protected function setEmailAttribute(string $value): void
     {
         $this->attributes['email'] = strtolower($value);
     }
@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @psalm-suppress PossiblyUnusedMethod
      */
-    public function setPasswordAttribute(string $value): void
+    protected function setPasswordAttribute(string $value): void
     {
         $this->attributes['password'] = Hash::make($value);
     }
